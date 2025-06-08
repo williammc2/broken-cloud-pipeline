@@ -177,3 +177,7 @@ This project uses a custom Docker image based on [`infrastructureascode/hello-wo
 - The binary was recompiled and a new Docker image was built using the following Dockerfile:
 
 This ensures the application responds with the required custom message when deployed.
+
+## Sensitive Data and Transcrypt
+
+The challenge recommended using Transcrypt for sensitive credentials. In this project, no real secrets or sensitive data were included in the repository—only placeholders such as `<your-account-id>` and `<sns-topic-arn>`. Therefore, Transcrypt was not required. If any real secrets needed to be versioned, Transcrypt would have been used to ensure security and compliance.
