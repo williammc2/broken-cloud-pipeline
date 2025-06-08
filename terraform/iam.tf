@@ -187,11 +187,11 @@ resource "aws_iam_role_policy_attachment" "ecs_instance_managed_attach" {
 }
 
 output "ecs_task_app_role_arn" {
-  description = "ARN da role de execução/task para ECS Task da aplicação."
+  description = "ARN of the execution/task role for the application ECS Task."
   value       = aws_iam_role.ecs_task_app.arn
 }
 
 output "ecs_task_jenkins_role_arn" {
-  description = "ARN da role de execução/task para ECS Task do Jenkins."
+  description = "ARN of the execution/task role for the Jenkins ECS Task."
   value       = aws_iam_role.ecs_task_jenkins.arn
 }
