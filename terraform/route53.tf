@@ -16,3 +16,21 @@ resource "aws_route53_query_log" "public" {
   zone_id                  = aws_route53_zone.public.id
   cloudwatch_log_group_arn = aws_cloudwatch_log_group.route53_query_logs.arn
 }
+
+// DNS record for app subdomain pointing to Application ALB
+resource "aws_route53_record" "app" {
+  zone_id = aws_route53_zone.public.id
+  name    = "app.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = [module.ecs_app.alb_dns_name]
+}
+
+// DNS record for jenkins subdomain pointing to Jenkins ALB
+resource "aws_route53_record" "jenkins" {
+  zone_id = aws_route53_zone.public.id
+  name    = "jenkins.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = [module.ecs_jenkins.alb_dns_name]
+}
